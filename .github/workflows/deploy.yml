@@ -46,7 +46,7 @@ jobs:
           script: |
             set -e
             echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-            cd /opt/personal-website
+            cd ${{ secrets.DEPLOY_PATH }}
             docker pull ${{ env.IMAGE_NAME }}:latest
             docker compose down
             docker compose up -d
