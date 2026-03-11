@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/personal-website
+      IMAGE_NAME: ghcr.io/amirhoseinarabhaji/personal-website
 
     steps:
       - name: Checkout code
@@ -50,4 +50,5 @@ jobs:
             docker pull ${{ env.IMAGE_NAME }}:latest
             docker compose down
             docker compose up -d
+
 

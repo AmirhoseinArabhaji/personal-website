@@ -2,17 +2,13 @@ version: "3.9"
 
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # Use the image built by GitHub Actions
+    image: ghcr.io/amirhoseinarabhaji/personal-website:latest
     container_name: personal-website
     restart: unless-stopped
     environment:
       - NODE_ENV=production
       - PORT=3000
     ports:
-      - "3000:3000"
-    # If you later add runtime env vars, mount them here or use an env_file.
-    # env_file:
-    #   - .env.production
-
+      - "127.0.0.1:3000:3000" # Security: Only allow Nginx to see this port, not the whole internet
+    # Pulling the image requires authentication, which your script handles
