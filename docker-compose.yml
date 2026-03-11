@@ -2,7 +2,6 @@ version: "3.9"
 
 services:
   web:
-    # Use the image built by GitHub Actions
     image: ghcr.io/amirhoseinarabhaji/personal-website:latest
     container_name: personal-website
     restart: unless-stopped
@@ -10,5 +9,4 @@ services:
       - NODE_ENV=production
       - PORT=3000
     ports:
-      - "127.0.0.1:3000:3000" # Security: Only allow Nginx to see this port, not the whole internet
-    # Pulling the image requires authentication, which your script handles
+      - "127.0.0.1:3000:3000"

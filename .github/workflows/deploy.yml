@@ -46,9 +46,15 @@ jobs:
           script: |
             set -e
             echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-            cd ${{ secrets.DEPLOY_PATH }}
-            docker pull ${{ env.IMAGE_NAME }}:latest
-            docker compose down
+            cd ${{ vars.DEPLOY_PATH }}
+            
+            # Pulls only the images defined in THIS folder's docker-compose.yml
+            docker compose pull
+            
+            # Recreates only THIS folder's containers without downtime
             docker compose up -d
+            
+            # Cleans up only "dangling" (untagged/replaced) images system-wide
+            docker image prune -f
 
 
