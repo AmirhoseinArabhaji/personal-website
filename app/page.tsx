@@ -16,9 +16,9 @@ export default function Home() {
           <HeroSection />
         </section>
 
-        <section id="projects">
-          <ProjectsSection />
-        </section>
+        {/*<section id="projects">*/}
+        {/*  <ProjectsSection />*/}
+        {/*</section>*/}
 
         <section id="experience">
           <ExperienceSection />
