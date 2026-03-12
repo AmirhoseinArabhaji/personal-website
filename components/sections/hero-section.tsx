@@ -1,4 +1,4 @@
-'use client'; // Required for framer-motion
+"use client"; // Required for framer-motion
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -57,14 +57,16 @@ export function HeroSection() {
           </h1>
         </div>
         <p className="mx-auto max-w-xl text-balance text-sm text-foreground/70 md:mx-0 sm:text-base">
-          Crafting reliable, elegant software for the modern web.
+          Building high-performance, scalable backends for the global web.
         </p>
         <p className="mx-auto max-w-xl text-balance text-sm text-foreground/70 md:mx-0 sm:text-base">
-          I&apos;m Amirhosein, a developer focused on building fast, resilient
-          experiences with TypeScript, Next.js, and modern tooling. I care
-          deeply about clean architecture, smooth DX, and delightful UX.
+          I&apos;m Amirhosein, a Software Engineer specializing in crafting
+          resilient server-side architectures with <b>Python</b>, <b>Django</b>,
+          and <b>PostgreSQL</b>. I am passionate about optimizing system
+          stability, refining complex business logic, and engineering seamless
+          multi-language platforms that serve international users.
         </p>
-        
+
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-sm text-foreground/70 md:justify-start">
           <span className="text-xs uppercase tracking-[0.2em] text-foreground/50">
             Connect
