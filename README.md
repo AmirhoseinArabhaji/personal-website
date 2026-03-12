@@ -44,5 +44,3 @@ Then run:
 ```bash
 docker compose up -d
 ```
-
-**Important:** `sitemap.xml` and `robots.txt` are generated **at build time**, so you must rebuild the image when your domain changes. The build uses the `SITE_URL` argument to bake the correct URLs into the static files.
