@@ -10,6 +10,8 @@ RUN npm ci
 # 2) Build the app
 FROM base AS builder
 ENV NODE_ENV=production
+ARG SITE_URL=http://localhost:3000
+ENV SITE_URL=${SITE_URL}
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
@@ -34,4 +36,3 @@ USER nextjs
 EXPOSE 3000
 
 CMD ["npm", "run", "start"]
-

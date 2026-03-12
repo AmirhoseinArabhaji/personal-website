@@ -8,22 +8,41 @@ It includes:
 - experience and education timeline
 - contact section
 - light/dark theme toggle
-- sitemap.xml and robots.txt metadata routes
+- static sitemap.xml and robots.txt (generated at build time)
 
 ## Local development
 
 ```bash
-cp .env.example .env
 npm install
 npm run dev
 ```
 
 Open `http://localhost:3000`.
 
-Set `NEXT_PUBLIC_SITE_URL` in `.env.local` or your deployment environment to your public domain so canonical metadata, `sitemap.xml`, and `robots.txt` use the correct origin.
-
 ## Docker
 
+### Development
+
 ```bash
-docker compose up --build
+docker compose -f docker-compose.dev.yml up --build
 ```
+
+Sitemap and robots use `http://localhost:3000` by default.
+
+### Production
+
+Build the image with your production domain:
+
+```bash
+docker build --build-arg SITE_URL=https://amirhosein.me -t personal-website:latest .
+```
+
+Or use GitHub Actions / your CI/CD to build with the correct `SITE_URL` arg.
+
+Then run:
+
+```bash
+docker compose up -d
+```
+
+**Important:** `sitemap.xml` and `robots.txt` are generated **at build time**, so you must rebuild the image when your domain changes. The build uses the `SITE_URL` argument to bake the correct URLs into the static files.
