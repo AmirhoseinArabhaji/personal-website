@@ -6,8 +6,8 @@ function normalizeSiteUrl(value: string) {
 
 export const siteUrl = (() => {
   const configuredSiteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
     process.env.SITE_URL ??
+    process.env.NEXT_PUBLIC_SITE_URL ??
     FALLBACK_SITE_URL;
 
   try {
