@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "@/lib/site";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -9,8 +10,12 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Amirhosein | Personal Portfolio",
   description: "High-end, dark-mode portfolio for Amirhosein.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -20,11 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark">
-      <body
-        className={`${spaceGrotesk.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${spaceGrotesk.variable} antialiased`}>{children}</body>
     </html>
   );
 }
