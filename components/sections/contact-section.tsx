@@ -3,14 +3,6 @@ import { Mail } from "lucide-react";
 const EMAIL = "amirhosein.arabhaji@gmail.com";
 
 export function ContactSection() {
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-    } catch {
-      // best-effort; no visible error handling needed for now
-    }
-  };
-
   return (
     <div className="space-y-6">
       <div className="space-y-2">
@@ -24,16 +16,14 @@ export function ContactSection() {
       </div>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <button
-          type="button"
-          onClick={handleCopyEmail}
+        <a
+          href={`mailto:${EMAIL}`}
           className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground shadow-sm shadow-black/30 transition-colors hover:border-accent-soft hover:bg-accent-soft/20"
         >
           <Mail className="h-4 w-4" />
           <span>{EMAIL}</span>
-        </button>
+        </a>
       </div>
     </div>
   );
 }
-
