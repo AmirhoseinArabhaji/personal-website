@@ -2,24 +2,13 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Project One",
+    title: "Personal Portfolio",
     description:
-      "A concise description of a key project that showcases your strengths and impact.",
+      "My personal site, built with Next.js and TypeScript, App Router architecture, animated sections with Framer Motion, SEO-optimized metadata, and Google Analytics tracking.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    href: "https://github.com/AmirhoseinArabhaji/personal-website",
   },
-  {
-    title: "Project Two",
-    description:
-      "Another highlight project, focused on performance, reliability, and great UX.",
-    tech: ["Node.js", "PostgreSQL", "Redis"],
-  },
-  {
-    title: "Project Three",
-    description:
-      "A project that demonstrates your ability to ship polished, production-ready work.",
-    tech: ["Framer Motion", "Zod", "tRPC"],
-  },
-];
+] satisfies { title: string; description: string; tech: string[]; href?: string }[];
 
 export function ProjectsSection() {
   return (
@@ -64,6 +53,15 @@ export function ProjectsSection() {
                 ))}
               </div>
             </div>
+            {project.href && (
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0"
+                aria-label={project.title}
+              />
+            )}
           </motion.article>
         ))}
       </div>
