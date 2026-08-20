@@ -6,9 +6,24 @@ const projects = [
     description:
       "My personal site, built with Next.js and TypeScript, App Router architecture, animated sections with Framer Motion, SEO-optimized metadata, and Google Analytics tracking.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    href: "https://github.com/AmirhoseinArabhaji/personal-website",
+    href: "https://amirhosein.me",
+    repoHref: "https://github.com/AmirhoseinArabhaji/personal-website",
   },
-] satisfies { title: string; description: string; tech: string[]; href?: string }[];
+  {
+    title: "Weather Fusion",
+    description:
+      "A weather intelligence platform that fetches forecasts from multiple providers concurrently, runs a consensus & confidence engine, and uses an LLM to explain the results in plain language.",
+    tech: ["Go", "Gin", "PostgreSQL", "Redis", "Next.js", "TypeScript"],
+    href: "https://weatherfusion.amirhosein.me",
+    repoHref: "https://github.com/AmirhoseinArabhaji/weather-fusion",
+  },
+] satisfies {
+  title: string;
+  description: string;
+  tech: string[];
+  href?: string;
+  repoHref?: string;
+}[];
 
 export function ProjectsSection() {
   return (
@@ -52,6 +67,16 @@ export function ProjectsSection() {
                   </span>
                 ))}
               </div>
+              {project.repoHref && (
+                <a
+                  href={project.repoHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative z-10 mt-3 self-start text-xs font-medium text-foreground/70 underline-offset-2 hover:text-foreground hover:underline"
+                >
+                  View source →
+                </a>
+              )}
             </div>
             {project.href && (
               <a

@@ -17,7 +17,7 @@ const workExperience = [
 
 const education = [
   {
-    period: "2024 — Present",
+    period: "2024 — Dec 2026 (Expected)",
     title: "MSc in Computer Science",
     organization: "University of Padova",
     description:
