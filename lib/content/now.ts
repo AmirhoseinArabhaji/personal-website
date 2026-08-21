@@ -9,18 +9,18 @@ export const nowStamp = "Aug 2026";
 export const nowItems: NowItem[] = [
   {
     label: "Building",
-    text: "Sharpening the consensus engine, and the way confidence gets communicated in a UI.",
+    text: "Nothing shipping this week. most of my time is going into small personal projects between thesis work.",
   },
   {
     label: "Studying",
-    text: "MSc coursework.",
+    text: "My MSc thesis, more than any single course right now.",
   },
   {
     label: "Exploring",
-    text: "Go concurrency patterns, in more depth than a single project requires.",
+    text: "Distributed systems and system design, past what one course or project requires.",
   },
   {
     label: "Away from the keyboard",
-    text: "Cycling, and rebuilding my Persian vocabulary one word at a time.",
+    text: "The gym, a backlog of movies I'm behind on, and wandering around parts of my city I haven't seen yet.",
   },
 ];

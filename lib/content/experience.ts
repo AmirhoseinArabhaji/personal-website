@@ -16,11 +16,11 @@ export const roles: Role[] = [
     company: null,
     companyUrl: "https://tribes.tech",
     intro:
-      "LegalTech and fundraising products put two kinds of pressure on a backend at once: documents that must never leak, and transaction flows that must never double-count.",
+      "Remote and part-time, working across two clients with very different failure modes: a LegalTech platform where a document ending up in front of the wrong person is the whole risk, and a fundraising platform where a transaction getting double-counted is.",
     points: [
-      "Built secure document handling, where who can see which document is part of the data model rather than a check bolted on at the view layer.",
-      "Worked on high-throughput transaction handling, where correctness under concurrent writes matters more than raw speed.",
-      "Implemented strict role-based access control across roles and organisations, and kept it maintainable as the product's roles multiplied.",
+      "Built a secure document-handling backend for the LegalTech client in Django and DRF, with role-based access control designed into the data model so a permission check isn't something you can forget to add to a new view.",
+      "Developed a high-throughput transaction engine for the fundraising platform, using PostgreSQL schemas built to hold up under concurrent writes rather than just concurrent reads.",
+      "Went through a legacy client platform fixing the API bugs that were actually causing downtime, and cleaned up the backend paths those bugs kept coming back to.",
     ],
   },
   {
@@ -30,11 +30,12 @@ export const roles: Role[] = [
     company: "Chabok Gerayan",
     companyUrl: "https://rentifa.com",
     intro:
-      "Four years on one codebase, long enough to see which early decisions age badly, and to be the one who fixes them.",
+      "Close to four years on one Django codebase, full-time until 2024 and part-time after, serving 10,000+ active users across multiple countries. Long enough to see which early decisions aged badly and to be the one fixing them.",
     points: [
-      "Profiled and rewrote slow API endpoints. Mostly a story about query patterns and doing less work per request, not about adding machines.",
-      "Reshaped parts of the architecture so features stopped reaching across boundaries they should not touch, which made changes cheaper to make.",
-      "Improved day-to-day stability by tightening failure paths: retries, timeouts, and the error handling nobody notices until it is missing.",
+      "Built out a multi-language database and API layer covering 5+ languages, so localized responses could be added without every new market turning into a special case.",
+      "Rewrote slow API endpoints: fewer queries, fewer joins, ORM calls that did less work per request. Response times dropped by about 40% on average.",
+      "Added multi-currency pricing and a multi-currency payment system for ads, plus object storage for media uploads, replacing what used to be handled ad hoc.",
+      "Reworked parts of the backend architecture, which brought a roughly 50% improvement in overall speed and stability, and shipped features like an SMS price-alert service that grew past 500 active subscribers and a vehicle comparison tool.",
     ],
   },
 ];
