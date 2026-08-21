@@ -23,7 +23,7 @@ export function HeroSection() {
           <div className="relative aspect-square w-full overflow-hidden border border-border">
             <Image
               src={profile.avatar}
-              alt={profile.name}
+              alt={profile.hero.avatarAlt}
               fill
               className="object-cover"
               sizes="176px"

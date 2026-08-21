@@ -14,7 +14,7 @@ export function AboutSection() {
           <div className="relative aspect-[4/5] w-full max-w-[264px] overflow-hidden border border-border">
             <Image
               src={profile.avatar}
-              alt={profile.name}
+              alt={profile.about.avatarAlt}
               fill
               className="object-cover"
               sizes="264px"

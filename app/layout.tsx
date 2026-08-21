@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const metadataTitle = `${profile.name} | ${profile.role}`;
 const metadataDescription =
-  "Personal portfolio of Amirhosein Arabhaji, a software engineer building fast, resilient web experiences with Python and Django.";
+  "Amirhosein Arabhaji is a backend software engineer specializing in Python/Django and Go, focused on performance, data modelling, and access control at scale.";
 const socialImagePath = profile.avatar;
 
 const personJsonLd = {

@@ -14,7 +14,7 @@ export function SectionHeading({
       <div className="h-0.5 w-14 bg-accent" />
       <div className="mt-[26px] flex items-baseline gap-4 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground-3">
         <span className="text-accent">{number}</span>
-        <span>{label}</span>
+        <h2 className="m-0 inline text-inherit">{label}</h2>
         {trailing && <span className="ml-auto">{trailing}</span>}
       </div>
     </div>
