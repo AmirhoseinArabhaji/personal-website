@@ -1,12 +1,27 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Newsreader, JetBrains_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { siteUrl } from "@/lib/site";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
   variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -86,8 +101,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
-      <body className={`${spaceGrotesk.variable} antialiased`}>{children}</body>
+    <html
+      lang="en"
+      data-theme="light"
+      className={`${spaceGrotesk.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="antialiased">{children}</body>
       {process.env.NEXT_PUBLIC_GA_ID && (
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
       )}

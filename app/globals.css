@@ -1,48 +1,76 @@
 @import "tailwindcss";
 
 :root {
-  /* default fallbacks */
-  --background: #f7f8f0;
-  --foreground: #355872;
-  --surface: #ffffff;
-  --border: #7aaace;
-  --accent: #7aaace;
-  --accent-soft: #9cd5ff;
+  /* default fallbacks (light palette) */
+  --background: #f7f5f0;
+  --foreground: #191817;
+  --surface: #efebe2;
+  --border: rgba(25, 24, 23, 0.16);
+  --accent: #bd4520;
+  --accent-soft: rgba(189, 69, 32, 0.15);
+  --on-accent: #ffffff;
+  --fg-2: rgba(25, 24, 23, 0.74);
+  --fg-3: rgba(25, 24, 23, 0.63);
 }
 
 html[data-theme="light"] {
-  /* light palette */
-  --background: #f7f8f0; /* rgb(247, 248, 240) */
-  --foreground: #355872; /* rgb(53, 88, 114) */
-  --surface: #ffffff;
-  --border: #7aaace; /* rgb(122, 170, 206) */
-  --accent: #7aaace;
-  --accent-soft: #9cd5ff; /* rgb(156, 213, 255) */
+  --background: #f7f5f0;
+  --foreground: #191817;
+  --surface: #efebe2;
+  --border: rgba(25, 24, 23, 0.16);
+  --accent: #bd4520;
+  --accent-soft: rgba(189, 69, 32, 0.15);
+  --on-accent: #ffffff;
+  --fg-2: rgba(25, 24, 23, 0.74);
+  --fg-3: rgba(25, 24, 23, 0.63);
 }
 
 html[data-theme="dark"] {
-  /* dark palette */
-  --background: #222831; /* rgb(34, 40, 49) */
-  --foreground: #dfd0b8; /* rgb(223, 208, 184) */
-  --surface: #393e46; /* rgb(57, 62, 70) */
-  --border: #948979; /* rgb(148, 137, 121) */
-  --accent: #dfd0b8;
-  --accent-soft: #948979;
+  --background: #121110;
+  --foreground: #ece7de;
+  --surface: #1b1917;
+  --border: rgba(236, 231, 222, 0.16);
+  --accent: #e4693e;
+  --accent-soft: rgba(228, 105, 62, 0.18);
+  --on-accent: #17150f;
+  --fg-2: rgba(236, 231, 222, 0.76);
+  --fg-3: rgba(236, 231, 222, 0.62);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-2: var(--fg-2);
+  --color-foreground-3: var(--fg-3);
   --color-surface: var(--surface);
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
   --font-sans: var(--font-space-grotesk);
+  --font-serif: var(--font-newsreader);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 @keyframes terminal-blink {

@@ -1,96 +1,152 @@
 import { motion } from "framer-motion";
+import { SectionHeading } from "./section-heading";
 
 const projects = [
   {
-    title: "Personal Portfolio",
-    description:
-      "My personal site, built with Next.js and TypeScript, App Router architecture, animated sections with Framer Motion, SEO-optimized metadata, and Google Analytics tracking.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    href: "https://amirhosein.me",
-    repoHref: "https://github.com/AmirhoseinArabhaji/personal-website",
-  },
-  {
+    eyebrow: "01 / Weather intelligence platform",
     title: "Weather Fusion",
-    description:
-      "A weather intelligence platform that fetches forecasts from multiple providers concurrently, runs a consensus & confidence engine, and uses an LLM to explain the results in plain language.",
-    tech: ["Go", "Gin", "PostgreSQL", "Redis", "Next.js", "TypeScript"],
-    href: "https://weatherfusion.amirhosein.me",
+    tagline: "A forecast is a claim, not a fact.",
+    columns: [
+      {
+        label: "The problem",
+        text: "Every weather app is one provider's opinion presented as certainty. Ask three providers about tomorrow and you often get three answers, with no way to tell how much they actually disagree.",
+      },
+      {
+        label: "What it does",
+        text: "Fetches forecasts from several providers concurrently, then runs a consensus and confidence engine. Agreement raises confidence; divergence gets surfaced instead of hidden. An LLM layer turns the result into plain language.",
+      },
+    ],
+    why: "I wanted the interesting work to be concurrency and data modelling rather than screens. Fan out to slow third-party APIs, keep the request path fast, and stay honest about uncertainty in the output.",
+    tech: [
+      { label: "Service", value: "Go · Gin" },
+      { label: "Persistence", value: "PostgreSQL" },
+      { label: "Cache", value: "Redis" },
+      { label: "Client", value: "Next.js · TypeScript" },
+    ],
+    demoHref: "https://weatherfusion.amirhosein.me",
     repoHref: "https://github.com/AmirhoseinArabhaji/weather-fusion",
   },
-] satisfies {
-  title: string;
-  description: string;
-  tech: string[];
-  href?: string;
-  repoHref?: string;
-}[];
+  {
+    eyebrow: "02 / Personal site",
+    title: "amirhosein.me",
+    tagline: "Small enough to keep changing.",
+    columns: [
+      {
+        label: "What it is",
+        text: "The thing you are reading. A statically served single page on the Next.js App Router, with content kept in typed data and layout kept in components, so adding a project is an edit to one file.",
+      },
+      {
+        label: "Why I built it",
+        text: "A place to point people at that is mine rather than a profile page, and a small surface to keep my frontend sharp: metadata, sitemap and robots are generated at build time.",
+      },
+    ],
+    why: null as string | null,
+    tech: [
+      { label: "Framework", value: "Next.js" },
+      { label: "Language", value: "TypeScript" },
+      { label: "Styling", value: "Tailwind CSS" },
+      { label: "Motion", value: "Framer Motion" },
+    ],
+    demoHref: "https://amirhosein.me",
+    repoHref: "https://github.com/AmirhoseinArabhaji/personal-website",
+  },
+];
 
 export function ProjectsSection() {
   return (
-    <div className="space-y-8">
-      <div className="space-y-2">
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Selected Projects
-        </h2>
-        <p className="max-w-xl text-sm text-foreground/70 sm:text-base">
-          A curated selection of work that highlights my experience across
-          product engineering, performance, and developer tooling.
-        </p>
-      </div>
+    <section id="work" className="mx-auto max-w-[1080px] scroll-mt-24">
+      <SectionHeading number="01" label="Projects" />
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {projects.map((project, index) => (
-          <motion.article
-            key={project.title}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border/70 bg-surface/90 p-[1px] shadow-lg shadow-black/40 transition-transform duration-300 ease-out hover:-translate-y-1 hover:-rotate-1"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.06 }}
-            viewport={{ once: true, margin: "-80px" }}
-          >
-            <div className="flex h-full flex-col rounded-2xl bg-background/40 p-4 sm:p-5">
-              <div className="mb-4">
-                <h3 className="text-base font-semibold tracking-tight sm:text-lg">
-                  {project.title}
-                </h3>
-                <p className="mt-2 text-xs text-foreground/70 sm:text-sm">
-                  {project.description}
+      {projects.map((project, index) => (
+        <motion.article
+          key={project.title}
+          className={
+            index === 0
+              ? "mt-[clamp(44px,8vh,96px)]"
+              : "mt-[clamp(56px,10vh,128px)] border-t border-border pt-[clamp(28px,4vh,48px)]"
+          }
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <p className="m-0 mb-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground-3">
+            {project.eyebrow}
+          </p>
+          <h2 className="m-0 font-serif text-[clamp(30px,4.4vw,58px)] font-normal leading-[1.02] tracking-[-0.02em]">
+            {project.title}
+          </h2>
+          <p className="mt-[clamp(22px,4vh,36px)] max-w-[26ch] font-serif text-[clamp(21px,2.5vw,34px)] leading-[1.3]">
+            {project.tagline}
+          </p>
+
+          <div className="mt-[clamp(32px,6vh,72px)] grid gap-[clamp(28px,5vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))]">
+            {project.columns.map((column) => (
+              <div key={column.label}>
+                <p className="m-0 mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground-3">
+                  {column.label}
+                </p>
+                <p className="m-0 text-[clamp(15px,1.05vw,17px)] leading-[1.75] text-foreground-2 text-pretty">
+                  {column.text}
                 </p>
               </div>
-              <div className="mt-auto flex flex-wrap gap-1.5">
-                {project.tech.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-accent-soft/15 px-2.5 py-1 text-[11px] font-medium text-foreground"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              {project.repoHref && (
-                <a
-                  href={project.repoHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative z-10 mt-3 self-start text-xs font-medium text-foreground/70 underline-offset-2 hover:text-foreground hover:underline"
-                >
-                  View source →
-                </a>
-              )}
+            ))}
+          </div>
+
+          {project.why && (
+            <div className="mt-[clamp(28px,5vh,48px)] max-w-[62ch]">
+              <p className="m-0 mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground-3">
+                Why I built it
+              </p>
+              <p className="m-0 text-[clamp(15px,1.05vw,17px)] leading-[1.75] text-foreground-2 text-pretty">
+                {project.why}
+              </p>
             </div>
-            {project.href && (
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0"
-                aria-label={project.title}
-              />
-            )}
-          </motion.article>
-        ))}
-      </div>
-    </div>
+          )}
+
+          <div className="mt-[clamp(40px,7vh,80px)] border border-border bg-surface">
+            <div className="border-b border-border px-[18px] py-[13px] font-mono text-[11px] uppercase tracking-[0.16em] text-foreground-3">
+              Technologies
+            </div>
+            <div className="grid font-mono text-[11px] [grid-template-columns:repeat(auto-fit,minmax(min(50%,180px),1fr))]">
+              {project.tech.map((item, techIndex) => (
+                <div
+                  key={item.label}
+                  className={
+                    techIndex < project.tech.length - 1
+                      ? "border-r border-border p-[18px]"
+                      : "p-[18px]"
+                  }
+                >
+                  <span className="mb-2 block text-[10px] uppercase tracking-[0.16em] text-foreground-3">
+                    {item.label}
+                  </span>
+                  {item.value}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href={project.demoHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-12 items-center gap-2.5 border border-accent bg-accent px-[22px] font-mono text-[11px] uppercase tracking-[0.14em] text-on-accent transition-opacity hover:opacity-90"
+            >
+              Live demo <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href={project.repoHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-12 items-center gap-2.5 border border-border px-[22px] font-mono text-[11px] uppercase tracking-[0.14em] text-foreground-2 transition-colors hover:border-foreground hover:text-foreground"
+            >
+              Source <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </motion.article>
+      ))}
+    </section>
   );
 }
-

@@ -1,34 +1,29 @@
 "use client";
 
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
+import { Sidebar } from "@/components/layout/sidebar";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
+import { EngineeringSection } from "@/components/sections/engineering-section";
+import { NowSection } from "@/components/sections/now-section";
+import { LabSection } from "@/components/sections/lab-section";
+import { AboutSection } from "@/components/sections/about-section";
 import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
-      <Navbar />
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-32 px-4 pb-24 pt-32 sm:px-6 lg:px-8 lg:pt-36">
-        <section id="hero">
-          <HeroSection />
-        </section>
-
-        <section id="projects">
-          <ProjectsSection />
-        </section>
-
-        <section id="experience">
-          <ExperienceSection />
-        </section>
-
-        <section id="contact">
-          <ContactSection />
-        </section>
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      <Sidebar />
+      <main id="top" className="px-[clamp(18px,5vw,88px)] lg:ml-[200px]">
+        <HeroSection />
+        <ProjectsSection />
+        <ExperienceSection />
+        <EngineeringSection />
+        <NowSection />
+        <LabSection />
+        <AboutSection />
+        <ContactSection />
       </main>
-      <Footer />
     </div>
   );
 }
