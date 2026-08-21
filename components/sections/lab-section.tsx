@@ -1,28 +1,5 @@
 import { SectionHeading } from "./section-heading";
-
-const notes = [
-  {
-    date: "2026.03.14",
-    kind: "Debugging",
-    title: "Why the slow endpoint was not the database's fault",
-    summary:
-      "Six hundred milliseconds that looked like a missing index, and turned out to be serialization doing the same work once per row.",
-  },
-  {
-    date: "2026.01.28",
-    kind: "Architecture",
-    title: "Fanning out to five APIs without letting the slowest one win",
-    summary:
-      "Notes from Weather Fusion on timeouts, partial results, and deciding what a response means when one provider never answers.",
-  },
-  {
-    date: "2025.11.09",
-    kind: "Design note",
-    title: "Modelling permissions so you cannot forget to check them",
-    summary:
-      "Why access rules that live in the query are harder to get wrong than access rules that live in the view layer.",
-  },
-];
+import { labNotes as notes } from "@/lib/content/lab-notes";
 
 export function LabSection() {
   return (
@@ -59,11 +36,6 @@ export function LabSection() {
           </li>
         ))}
       </ul>
-      <p className="m-0 mt-[22px] max-w-[62ch] font-mono text-[11px] leading-[1.9] tracking-[0.06em] text-foreground-3">
-        Placeholder entries. Each note is a date, a kind (debugging,
-        architecture, design note, benchmark), a title that states the
-        finding, and one sentence of what is inside.
-      </p>
     </section>
   );
 }

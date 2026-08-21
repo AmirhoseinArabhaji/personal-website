@@ -1,13 +1,5 @@
 import { SectionHeading } from "./section-heading";
-
-const EMAIL = "amirhosein.arabhaji@gmail.com";
-
-const links = [
-  { label: "GitHub", handle: "AmirhoseinArabhaji", href: "https://github.com/AmirhoseinArabhaji" },
-  { label: "LinkedIn", handle: "amirhosein-arabhaji", href: "https://linkedin.com/in/amirhosein-arabhaji/" },
-  { label: "Telegram", handle: "@Amirhosein_Ara", href: "https://t.me/Amirhosein_Ara" },
-  { label: "Instagram", handle: "_amirhosein_ar", href: "https://instagram.com/_amirhosein_ar/" },
-];
+import { email as EMAIL, contactLinks as links } from "@/lib/content/contact";
 
 export function ContactSection() {
   return (

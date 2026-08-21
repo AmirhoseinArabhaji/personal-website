@@ -1,29 +1,5 @@
 import { SectionHeading } from "./section-heading";
-
-const items = [
-  {
-    label: "Building",
-    text: "Sharpening the consensus engine, and the way confidence gets communicated in a UI.",
-    muted: false,
-  },
-  {
-    label: "Studying",
-    text: "MSc coursework.",
-    muted: false,
-  },
-  {
-    label: "Exploring",
-    text: "Go concurrency patterns, in more depth than a single project requires.",
-    muted: false,
-  },
-  {
-    label: "Away from the keyboard",
-    text: "Cycling, and rebuilding my Persian vocabulary one word at a time.",
-    muted: false,
-  },
-];
-
-const NOW_STAMP = "Aug 2026";
+import { nowItems as items, nowStamp as NOW_STAMP } from "@/lib/content/now";
 
 export function NowSection() {
   return (
