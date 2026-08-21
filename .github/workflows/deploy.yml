@@ -54,12 +54,17 @@ jobs:
             cd ${{ vars.DEPLOY_PATH }}
             
             # Pulls only the images defined in THIS folder's docker-compose.yml
-            docker compose pull
+            for i in 1 2 3; do
+              docker compose pull && break
+              if [ "$i" -eq 3 ]; then
+                exit 1
+              fi
+              sleep 10
+            done
             
             # Recreates only THIS folder's containers without downtime
             docker compose up -d
             
             # Cleans up only "dangling" (untagged/replaced) images system-wide
             docker image prune -f
-
 
