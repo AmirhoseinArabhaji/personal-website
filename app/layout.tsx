@@ -3,6 +3,8 @@ import { Space_Grotesk, Newsreader, JetBrains_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { siteUrl } from "@/lib/site";
+import { profile } from "@/lib/content/profile";
+import { email, contactLinks } from "@/lib/content/contact";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -25,10 +27,21 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const metadataTitle = "Amirhosein | Personal Portfolio";
+const metadataTitle = `${profile.name} | ${profile.role}`;
 const metadataDescription =
   "Personal portfolio of Amirhosein Arabhaji, a software engineer building fast, resilient web experiences with Python and Django.";
-const socialImagePath = "/avatar.jpg";
+const socialImagePath = profile.avatar;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: siteUrl,
+  image: `${siteUrl}${profile.avatar}`,
+  jobTitle: profile.role,
+  email: `mailto:${email}`,
+  sameAs: contactLinks.map((link) => link.href),
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -58,7 +71,7 @@ export const metadata: Metadata = {
   publisher: "Amirhosein Arabhaji",
   category: "technology",
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   openGraph: {
     type: "website",
@@ -106,7 +119,13 @@ export default function RootLayout({
       data-theme="light"
       className={`${spaceGrotesk.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        {children}
+      </body>
       {process.env.NEXT_PUBLIC_GA_ID && (
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
       )}
