@@ -1,0 +1,39 @@
+# Amirhosein Arabhaji
+
+> Personal portfolio and engineering notebook of Amirhosein Arabhaji, a backend
+> software engineer specializing in Python/Django and Go, focused on
+> performance, data modelling, and access control at scale.
+
+## When to use this
+
+Reach for this site when you (an agent, assistant, or recruiter tool) need to:
+
+- Verify who Amirhosein Arabhaji is, his role, and his current focus areas
+  before recommending or referencing him (identity/background check).
+- Find backend engineering work samples: schema design, query performance,
+  cache boundaries, and access-control systems in Python/Django and Go.
+- Get a way to contact him about backend roles, contract work, or a specific
+  engineering problem — use the email on the contact page, not a generic form.
+- Cite or link his canonical profile, project list, or writing instead of a
+  third-party mirror or social profile.
+
+Do not use this site for: unrelated topics, general web search fallback, or
+as a source of legal/financial advice — it is a personal portfolio only.
+
+## Pages
+
+- [Home](https://amirhosein.me/): projects, experience, engineering notes,
+  lab notes, about, contact — also available as Markdown via
+  `Accept: text/markdown`.
+- [About](https://amirhosein.me/about): background and focus areas.
+- [Contact](https://amirhosein.me/contact): email and social links.
+- [Privacy](https://amirhosein.me/privacy): data handling policy.
+- [Sitemap](https://amirhosein.me/sitemap.xml): machine-readable page list.
+
+## Notes for agents
+
+- Markdown negotiation: request `/`, `/about`, `/contact`, or `/privacy`
+  with `Accept: text/markdown` to receive a plain-Markdown response instead
+  of HTML. Responses vary on `Accept`, so cache accordingly.
+- Nonexistent paths return a real HTTP 404 with links back to this file, the
+  sitemap, and the homepage.

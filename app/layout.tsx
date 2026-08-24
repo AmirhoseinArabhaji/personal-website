@@ -36,6 +36,8 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
+  alternateName: "Amirhosein Arabhaji Portfolio",
+  description: metadataDescription,
   url: siteUrl,
   image: `${siteUrl}${profile.avatar}`,
   jobTitle: profile.role,
